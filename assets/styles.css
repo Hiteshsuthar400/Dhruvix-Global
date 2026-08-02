@@ -1,31 +1,39 @@
-/* Basic styles for Dhruvix Global */
+/* Global background for all pages (fallback styles.css) */
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: url('/assets/images/hero.jpg') center/cover no-repeat fixed;
+  background-color:#071722;
+  color:#eaeef2;
+}
+body::before{content:"";position:fixed;inset:0;background:rgba(7,10,14,0.45);pointer-events:none;z-index:0}
+header, .site-header, .container, .card{position:relative;z-index:1}
+
 :root{
-  --bg:#f8f9fb;
+  --bg:transparent;
   --accent:#2b6cb0;
-  --muted:#6b7280;
-  --card:#ffffff;
+  --muted:#cbd5e1;
+  --card:rgba(255,255,255,0.04);
   --container:1100px;
 }
 *{box-sizing:border-box}
-body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#111}
 .container{max-width:var(--container); margin:0 auto; padding:1rem}
-.site-header{background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.05)}
+.site-header{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow:0 1px 2px rgba(0,0,0,0.15)}
 .site-header .container{display:flex; align-items:center; justify-content:space-between}
 .brand{font-weight:700; color:var(--accent); text-decoration:none}
 .main-nav a{margin:0 0.5rem; text-decoration:none; color:var(--muted)}
-.actions button{background:transparent; border:1px solid var(--muted); padding:0.4rem 0.6rem; border-radius:6px}
+.actions button{background:transparent; border:1px solid rgba(255,255,255,0.06); padding:0.4rem 0.6rem; border-radius:6px}
 .hero{padding:3rem 0}
 .hero-inner{display:flex; gap:2rem; align-items:center}
 .hero-copy h1{margin:0 0 0.5rem}
 .hero-image img{max-width:100%; border-radius:8px}
-.btn{display:inline-block; background:var(--accent); color:#fff; padding:0.6rem 1rem; text-decoration:none; border-radius:6px}
+.btn{display:inline-block; background:linear-gradient(90deg,#00d2ff,#3a7bd5); color:#07203a; padding:0.6rem 1rem; text-decoration:none; border-radius:6px}
 .products .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem}
-.card{background:var(--card); padding:1rem; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.06); text-align:center}
+.card{background:rgba(3,7,18,0.55); padding:1rem; border-radius:8px; box-shadow:0 1px 8px rgba(2,6,12,0.6); text-align:center}
 .card img{width:100%; height:auto; border-radius:6px}
 .price{color:var(--accent); font-weight:600}
-.site-footer{padding:2rem 0; text-align:center; color:var(--muted)}n
-/* Forms */
+.site-footer{padding:2rem 0; text-align:center; color:var(--muted)}
 form{display:flex; flex-direction:column; gap:0.6rem; max-width:600px}
-input, textarea{padding:0.6rem; border-radius:6px; border:1px solid #e5e7eb}
-.status{color:green}
+input, textarea{padding:0.6rem; border-radius:6px; border:1px solid rgba(255,255,255,0.04); background:rgba(255,255,255,0.02); color:inherit}
+.status{color:#a3f7c5}
 @media(max-width:800px){.hero-inner{flex-direction:column; text-align:center}}

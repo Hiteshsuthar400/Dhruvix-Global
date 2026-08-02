@@ -1,8 +1,29 @@
+/* Global background for all pages */
+body{
+  margin:0;
+  font-family:Inter,system-ui,Arial,sans-serif;
+  background: url('/assets/images/hero.jpg') center/cover no-repeat fixed;
+  background-color:#071722; /* fallback */
+  color:#e6eef8;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+/* subtle dark overlay so text remains readable */
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;
+  background:linear-gradient(180deg, rgba(3,7,18,0.45), rgba(3,7,18,0.65));
+  z-index:0;
+}
+
+/* Ensure top UI sits above background overlay */
+.header, .site-header, header, .hero-inner, main, .container, .card{position:relative;z-index:1}
+
 /* Basic modern theme (New Generation / realistic store) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
 :root{
-  --bg:#0f1722;
+  --bg:transparent;
   --card: rgba(255,255,255,0.06);
   --accent-1: linear-gradient(135deg,#00d2ff 0%, #3a7bd5 100%);
   --glass: rgba(255,255,255,0.06);
@@ -11,13 +32,6 @@
 
 *{box-sizing:border-box}
 html,body{height:100%}
-body{
-  margin:0;
-  font-family:Inter,system-ui,Arial,sans-serif;
-  background:var(--bg);
-  color:#e6eef8;
-  -webkit-font-smoothing:antialiased;
-}
 
 .header{
   position:fixed;left:0;right:0;top:0;z-index:40;
@@ -34,7 +48,6 @@ body{
 
 .hero{
   min-height:75vh;display:flex;align-items:center;justify-content:center;padding:120px 24px 40px;
-  background-image: url('../images/hero.jpg');
   background-size:cover;background-position:center center;position:relative;
 }
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,7,18,0.45), rgba(3,7,18,0.65));}
@@ -46,12 +59,12 @@ body{
 
 .content{max-width:1200px;margin:28px auto;padding:0 20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.card{background:var(--glass);border:1px solid var(--glass-border);padding:16px;border-radius:12px;overflow:hidden}
+.card{background:rgba(7,12,20,0.55);border:1px solid rgba(255,255,255,0.04);padding:16px;border-radius:12px;overflow:hidden}
 .product-img{height:160px;background:#0c141a;border-radius:8px;margin-bottom:12px;background-size:cover;background-position:center}
 .price{font-weight:700}
 .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:#1f6feb;color:white;text-decoration:none}
 
-.footer{padding:28px;text-align:center;opacity:0.7}
+.footer{padding:28px;text-align:center;opacity:0.85}
 
 /* small screens */
 @media (max-width:720px){.h1{font-size:28px}.hero{padding-top:100px}}
