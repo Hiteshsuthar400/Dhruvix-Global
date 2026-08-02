@@ -1,0 +1,57 @@
+/* Basic modern theme (New Generation / realistic store) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root{
+  --bg:#0f1722;
+  --card: rgba(255,255,255,0.06);
+  --accent-1: linear-gradient(135deg,#00d2ff 0%, #3a7bd5 100%);
+  --glass: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Arial,sans-serif;
+  background:var(--bg);
+  color:#e6eef8;
+  -webkit-font-smoothing:antialiased;
+}
+
+.header{
+  position:fixed;left:0;right:0;top:0;z-index:40;
+  display:flex;align-items:center;justify-content:space-between;padding:16px 28px;
+  backdrop-filter: blur(6px);
+  background:linear-gradient(180deg, rgba(7,12,20,0.6), rgba(7,12,20,0.35));
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:40px}
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{color:inherit;text-decoration:none;padding:8px 12px;border-radius:8px}
+.nav a:hover{background:rgba(255,255,255,0.03)}
+
+.hero{
+  min-height:75vh;display:flex;align-items:center;justify-content:center;padding:120px 24px 40px;
+  background-image: url('../images/hero.jpg');
+  background-size:cover;background-position:center center;position:relative;
+}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,7,18,0.45), rgba(3,7,18,0.65));}
+.hero-inner{position:relative;z-index:2;max-width:1200px;width:100%;display:flex;gap:36px;align-items:center}
+.hero-copy{flex:1}
+.h1{font-size:44px;margin:0 0 12px;line-height:1.02}
+.lead{opacity:0.9;margin-bottom:18px}
+.cta{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--accent-1);color:#07203a;font-weight:700;text-decoration:none}
+
+.content{max-width:1200px;margin:28px auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--glass);border:1px solid var(--glass-border);padding:16px;border-radius:12px;overflow:hidden}
+.product-img{height:160px;background:#0c141a;border-radius:8px;margin-bottom:12px;background-size:cover;background-position:center}
+.price{font-weight:700}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;background:#1f6feb;color:white;text-decoration:none}
+
+.footer{padding:28px;text-align:center;opacity:0.7}
+
+/* small screens */
+@media (max-width:720px){.h1{font-size:28px}.hero{padding-top:100px}}

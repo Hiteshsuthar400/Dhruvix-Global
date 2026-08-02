@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cart — Dhruvix</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="/assets/images/logo-placeholder.png" alt="logo"><strong>Dhruvix</strong></div>
+    <nav class="nav"><a href="/">Home</a></nav>
+  </header>
+  <main style="padding-top:120px;max-width:900px;margin:0 auto;padding:120px 20px 40px">
+    <h1>Your Cart</h1>
+    <div id="cart-root"></div>
+    <p><a href="#" id="checkout" class="btn">Checkout</a></p>
+  </main>
+  <script>
+    const CART_KEY = 'dg_cart_v1';
+    function render(){
+      const root = document.getElementById('cart-root');
+      const cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+      if(!cart.length) return root.innerHTML = '<p>Your cart is empty.</p>';
+      root.innerHTML = '<div>' + cart.map(item=>`
+        <div style="display:flex;gap:12px;align-items:center;padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">
+          <div style="width:64px;height:64px;background:#071219;border-radius:8px;background-size:cover;background-image:url('/assets/images/products/${item.id}.jpg')"></div>
+          <div style="flex:1"><strong>${item.name}</strong><div>$${item.price} x ${item.qty}</div></div>
+        </div>
+      `).join('') + '</div>';
+    }
+    document.getElementById('checkout').addEventListener('click', e=>{e.preventDefault();alert('Checkout placeholder — integrate payment and server-side order processing');});
+    render();
+  </script>
+</body>
+</html>
