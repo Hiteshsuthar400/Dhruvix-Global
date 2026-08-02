@@ -21,7 +21,8 @@ header, .site-header, .container, .card{position:relative;z-index:1}
 .site-header{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow:0 1px 2px rgba(0,0,0,0.15)}
 .site-header .container{display:flex; align-items:center; justify-content:space-between}
 .brand{font-weight:700; color:var(--accent); text-decoration:none}
-.main-nav a{margin:0 0.5rem; text-decoration:none; color:var(--muted)}
+.main-nav{display:flex; gap:12px; align-items:center}
+.main-nav a{color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px}
 .actions button{background:transparent; border:1px solid rgba(255,255,255,0.06); padding:0.4rem 0.6rem; border-radius:6px}
 .hero{padding:3rem 0}
 .hero-inner{display:flex; gap:2rem; align-items:center}
@@ -36,4 +37,23 @@ header, .site-header, .container, .card{position:relative;z-index:1}
 form{display:flex; flex-direction:column; gap:0.6rem; max-width:600px}
 input, textarea{padding:0.6rem; border-radius:6px; border:1px solid rgba(255,255,255,0.04); background:rgba(255,255,255,0.02); color:inherit}
 .status{color:#a3f7c5}
-@media(max-width:800px){.hero-inner{flex-direction:column; text-align:center}}
+
+/* Responsive rules */
+@media (max-width:1000px){
+  .hero-inner{flex-direction:column; gap:1rem}
+  .main-nav{gap:8px}
+}
+
+@media (max-width:800px){
+  .main-nav{display:none}
+  /* mobile nav not displayed by default; toggled by script */
+  body.nav-open .main-nav{display:flex; flex-direction:column; position:fixed; top:64px; left:12px; right:12px; background:rgba(3,7,18,0.95); padding:12px; border-radius:8px; z-index:60}
+  .site-header .container{padding:8px}
+}
+
+@media (max-width:480px){
+  .brand{font-size:16px}
+  .hero{padding-top:90px}
+  .products .grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+  body{background-attachment:scroll}
+}
